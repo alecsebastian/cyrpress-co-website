@@ -1,65 +1,70 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
+import GallerySection from "@/components/GallerySection"; 
+import IronwoodSection from "@/components/IronwoodSection"; 
+import SummitSection from "@/components/SummitSection"; 
+import ConciergeSearch from "@/components/ConciergeSearch";
+import PortfolioFooter from "@/components/PortfolioFooter";
+import CaseStudies from "@/components/CaseStudies";
 
 export default function Home() {
+  
+  // Smooth scroll function for our new cinematic button
+  const handleScroll = () => {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="w-full">
+      
+      {/* 1. THE HERO SECTION */}
+      <section data-theme="dark" className="relative h-screen w-full flex flex-col justify-center overflow-hidden">
+        
+        {/* Background Image & Dark Overlay (Darkened slightly at the top/bottom for better text contrast on mobile) */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/hero-landing.jpg" 
+            alt="Luxury Architecture at Dusk" 
+            fill 
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80 z-10"></div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Content Container (Adjusted to px-6 on mobile, px-12 on desktop) */}
+        <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 pt-24 md:pt-32 flex flex-col justify-center h-full">
+          
+          {/* The Concierge Search Pill (Added margin-bottom to separate it from the text on mobile) */}
+          <div className="mb-12 md:mb-16">
+            <ConciergeSearch />
+          </div>
+
+          {/* The Hero Typography (Fluid sizing so it doesn't break on a phone screen!) */}
+          <div className="max-w-4xl">
+            <h1 className="font-serif text-5xl sm:text-7xl md:text-[90px] text-white leading-[1.1] mb-6 md:mb-8">
+              The Art of <br /> Living, Refined.
+            </h1>
+            <p className="font-sans text-lg md:text-2xl lg:text-3xl text-white/90 leading-relaxed font-light">
+              Where visionary design meets unparalleled craftsmanship. Your lifestyle, meticulously rendered in stone and glass.
+            </p>
+          </div>
+
         </div>
-      </main>
-    </div>
+
+        
+
+      </section>
+
+      {/* 2. THE COLLECTION SECTION */}
+      <GallerySection />
+      <IronwoodSection />
+      <SummitSection />
+      <CaseStudies />
+      <PortfolioFooter />
+
+    </main>
   );
 }
