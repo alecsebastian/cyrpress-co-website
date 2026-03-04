@@ -20,7 +20,7 @@ export default function Home() {
     <main className="w-full">
       
       {/* 1. THE HERO SECTION */}
-      <section data-theme="dark" className="relative h-screen w-full flex flex-col justify-center overflow-hidden">
+      <section data-theme="dark" className="relative min-h-[100dvh] w-full flex flex-col justify-center overflow-hidden">
         
         {/* Background Image & Dark Overlay (Darkened slightly at the top/bottom for better text contrast on mobile) */}
         <div className="absolute inset-0 z-0">
