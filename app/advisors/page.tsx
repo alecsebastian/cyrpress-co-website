@@ -15,25 +15,25 @@ const advisors = [
     image: "/elias.jpg"
   },
   {
-    name: "Julian Thorne",
+    name: "Toru Kazama",
     title: "Director of Architectural Estates",
     phone: "+1 (212) 555-0199",
-    email: "julian@cypress.co",
-    image: "/julian.jpg"
+    email: "toru@cypress.co",
+    image: "/kazama.jpg"
   },
   {
-    name: "Victoria Sterling",
+    name: "Shinchan Nohara",
     title: "Head of International Acquisitions",
     phone: "+44 20 7946 0958",
-    email: "victoria@cypress.co",
-    image: "/elias.jpg" // Using placeholder image for now
+    email: "shinchan@cypress.co",
+    image: "/shinchan.jpg" // Using placeholder image for now
   },
   {
-    name: "Marcus Vance",
+    name: "Hiroshi Nohara",
     title: "Private Wealth Liaison",
     phone: "+971 4 332 9000",
-    email: "marcus@cypress.co",
-    image: "/julian.jpg" // Using placeholder image for now
+    email: "hiroshi@cypress.co",
+    image: "/hiroshi.jpg" // Using placeholder image for now
   }
 ];
 
