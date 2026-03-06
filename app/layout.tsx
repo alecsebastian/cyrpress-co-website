@@ -20,11 +20,19 @@ const playfair = Playfair_Display({
 
 // 2. Setting the SEO & Browser Tab Data
 export const metadata: Metadata = {
+  // NEW: metadataBase is crucial. It tells Next.js how to resolve relative links 
+  // (like your image) into absolute URLs for social media scrapers.
+  metadataBase: new URL("https://cypressandco.com"),
+
   title: {
     template: "%s | Cypress & Co.",
     default: "Cypress & Co. | Ultra-Prime Real Estate Advisory",
   },
   description: "Exclusive advisory for the acquisition and disposition of North America's most significant estates. Operating with absolute discretion.",
+  
+  // NEW: Keywords help search engines understand your niche
+  keywords: ["ultra-prime real estate", "luxury real estate advisory", "legacy estates", "architectural homes", "private wealth real estate", "Cypress & Co"],
+
   openGraph: {
     title: "Cypress & Co. | Private Portfolio",
     description: "Operating at the intersection of architectural provenance and private wealth.",
@@ -40,6 +48,27 @@ export const metadata: Metadata = {
     ],
     locale: "en_US",
     type: "website",
+  },
+
+  // NEW: Dedicated Twitter/X card styling ensures the image stretches beautifully
+  twitter: {
+    card: "summary_large_image",
+    title: "Cypress & Co. | Private Portfolio",
+    description: "Operating at the intersection of architectural provenance and private wealth.",
+    images: ["/glass-house-ext.jpg"],
+  },
+
+  // NEW: Explicitly tells Google and other bots that they are allowed to index this site
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
