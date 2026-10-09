@@ -1,4 +1,11 @@
 import PortfolioFooter from "@/components/PortfolioFooter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Protocol",
+  alternates: { canonical: "/privacy" },
+  openGraph: { url: "/privacy", images: ["/og-image.png"] },
+};
 
 export default function PrivacyPage() {
   return (

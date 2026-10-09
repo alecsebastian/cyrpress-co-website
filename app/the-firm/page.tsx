@@ -1,6 +1,13 @@
 import Image from "next/image";
 import FirmContent from "@/components/FirmComponent";
 import PortfolioFooter from "@/components/PortfolioFooter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "The Firm",
+  alternates: { canonical: "/the-firm" },
+  openGraph: { url: "/the-firm", images: ["/og-image.png"] },
+};
 
 export default function FirmPage() {
   return (

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import PortfolioFooter from "@/components/PortfolioFooter";
 
 // 1. The Article Database (with full body content)
@@ -36,6 +37,19 @@ const articleData = {
     ]
   }
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articleData[slug as keyof typeof articleData];
+  if (!article) return { title: "Insight Not Found", robots: { index: false } };
+  const url = `/insights/${slug}`;
+  return {
+    title: article.title,
+    alternates: { canonical: url },
+    openGraph: { title: article.title, url, images: [article.heroImage] },
+    twitter: { card: "summary_large_image", title: article.title, images: [article.heroImage] },
+  };
+}
 
 // 2. The Dynamic Page Component
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {

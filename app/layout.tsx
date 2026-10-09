@@ -22,7 +22,8 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   // NEW: metadataBase is crucial. It tells Next.js how to resolve relative links 
   // (like your image) into absolute URLs for social media scrapers.
-  metadataBase: new URL("https://cypressandco.com"),
+  metadataBase: new URL("https://realestate.adrocitystudios.com"),
+  alternates: { canonical: "/" },
 
   title: {
     template: "%s | Cypress & Co.",
@@ -36,14 +37,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cypress & Co. | Private Portfolio",
     description: "Operating at the intersection of architectural provenance and private wealth.",
-    url: "https://cypressandco.com",
+    url: "https://realestate.adrocitystudios.com/",
     siteName: "Cypress & Co.",
     images: [
       {
-        url: "/glass-house-ext.jpg", // This image will show up in iMessage and LinkedIn!
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Cypress & Co. Masterpiece",
+        alt: "Cypress & Co. real estate website concept hero",
       },
     ],
     locale: "en_US",
@@ -55,21 +56,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cypress & Co. | Private Portfolio",
     description: "Operating at the intersection of architectural provenance and private wealth.",
-    images: ["/glass-house-ext.jpg"],
+    images: ["/og-image.png"],
   },
 
-  // NEW: Explicitly tells Google and other bots that they are allowed to index this site
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: { index: false, follow: false },
 };
 
 // 3. The Master HTML Shell

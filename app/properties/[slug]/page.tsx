@@ -92,7 +92,9 @@ export async function generateMetadata({
   return {
     title: property.title,
     description: property.description,
+    alternates: { canonical: `/properties/${resolvedParams.slug}` },
     openGraph: {
+      url: `/properties/${resolvedParams.slug}`,
       title: `${property.title} | Cypress & Co.`,
       description: property.headline,
       images: [
